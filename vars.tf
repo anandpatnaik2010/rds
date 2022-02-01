@@ -1,17 +1,17 @@
  variable "db_instance_identifier"{
-    default = "lm-mmx-psdv"
+    default = "db-prod"
 }
 variable "db_snapshot_identifier"{
-    default = "lm-mmx-psdv-snapshot"
+    default = "db-prod-snapshot"
 }
 variable "instance_class"{
-    default = "db.m5.xlarge"
+    default = "db.t2.micro"
 }
 variable "identifier"{
-    default = "lm-mmx-psdv-restored"
+    default = "db-prod-restored"
 }
 variable "db_subnet_group_name"{
-    default = "lm-mmx-preprod-subnet-grp-1"
+    default = "db-preprod-subnet-grp-1"
 }
 
 variable key_spec {
