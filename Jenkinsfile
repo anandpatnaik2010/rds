@@ -24,7 +24,7 @@ pipeline{
             steps {
                  genericBuild(
                     image: 'hashicorp/terraform:latest',
-                    cmd: 'cd ./infrastructure && \
+                    cmd: 
                     terraform init  -input=false -reconfigure -backend-config=region="${AWS_REGION}" -backend-config=bucket="${STATE_BUCKET_PREFIX}"-"${AWS_ENVIRONMENT}"-state -backend-config=workspace_key_prefix="${APP_NAME}"-"${AWS_ENVIRONMENT}" -backend-config=key=subham-dni && \
 		    terraform destroy -auto-approve && \
 	            terraform plan -input=false -out=subham-tfplan.tfplan && \
