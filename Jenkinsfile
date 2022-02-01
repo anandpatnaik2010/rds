@@ -13,7 +13,7 @@ pipeline{
            AWS_ENVIRONMENT = "preprod"
            STACK_NAME = "test"
 	   APP_NAME = 'subham-app'
-	   STATE_BUCKET_PREFIX='subham-bucket'
+	   STATE_BUCKET_PREFIX='947666650043-bucket'
     }
 	
     stages {
