@@ -9,11 +9,11 @@ pipeline{
 	 
            AWS_ROLE = "subham-role"
            AWS_REGION='us-west-2'
-           AWS_ACCOUNT = ''
+           AWS_ACCOUNT = '947666650043'
            AWS_ENVIRONMENT = "preprod"
            STACK_NAME = "test"
-	         APP_NAME = 'subham-app'
-	         STATE_BUCKET_PREFIX='subham-bucket'
+	   APP_NAME = 'subham-app'
+	   STATE_BUCKET_PREFIX='subham-bucket'
     }
 	
     stages {
