@@ -11,3 +11,8 @@ variable "region" {
 variable "db_instance_identifier"{
     default = "database-1"
 }
+
+variable "snapsort_instance_identifier"{
+    default = "database-1"
+}
+
