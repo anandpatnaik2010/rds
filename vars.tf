@@ -16,3 +16,7 @@ variable "db_instance_identifier"{
 variable "db_snapshot_identifier"{
     default = "database-snapshot"
 }
+
+variable "instance_class"{
+    default = "db.m5.xlarge"
+}
