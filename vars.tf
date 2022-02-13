@@ -18,5 +18,5 @@ variable "db_snapshot_identifier"{
 }
 
 variable "instance_class"{
-    default = "db.m5.xlarge"
+    default = "db.t2.micro"
 }
