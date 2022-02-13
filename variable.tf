@@ -13,6 +13,6 @@ variable "db_instance_identifier"{
 }
 
 variable "snapsort_instance_identifier"{
-    default = "database-1"
+    default = "database-1-snapsort"
 }
 
