@@ -1,4 +1,4 @@
-resource "aws_db_snapshot" "lm-mmx-createSnapshot" {
-db_instance_identifier = ""
-db_snapshot_identifier = "${var.db_snapshot_identifier}"
+resource "aws_db_snapshot" "subham-createSnapshot" {
+#db_instance_identifier = "db-prepod"
+db_snapshot_identifier = "db-prepod"
 }
