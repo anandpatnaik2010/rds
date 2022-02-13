@@ -9,5 +9,5 @@ variable "region" {
   }
 
 variable "db_instance_identifier"{
-    default = "db-prod"
+    default = "database-1"
 }
