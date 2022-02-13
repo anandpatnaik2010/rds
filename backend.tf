@@ -6,6 +6,7 @@ db_snapshot_identifier = "${var.db_snapshot_identifier}"
 resource "aws_db_instance" "subham-restoreDB" {
 depends_on = [aws_db_snapshot.subham-createSnapshot]
 snapshot_identifier = "${var.db_snapshot_identifier}"
+instance_class = "${var.instance_class}"
 skip_final_snapshot = true
 
 }
