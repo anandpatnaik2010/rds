@@ -20,3 +20,7 @@ variable "db_snapshot_identifier"{
 variable "instance_class"{
     default = "db.t2.micro"
 }
+
+variable "identifier"{
+    default = "database-1-restored"
+}
