@@ -1,40 +1,36 @@
-pipeline {
+pipeline{
+
     agent any
-    
-    
-    tools {
-        terraform 'terraform'
+
+    environment {
+	 
+           AWS_ROLE = "AWSServiceRoleForRDS"
+           AWS_REGION='us-east-1'
+           AWS_ACCOUNT = '286429252326'
+           STATE_BUCKET_PREFIX='subhampandamybucket'
     }
+	
     stages {
-        stage ("checkout from GIT") {
+
+
+ stage('********************************************Create Snapshot & Restore********************************************') 
+          {  
             steps {
-                git branch: 'main', url: 'https://github.com/subhampanda/CI-CD.git'
+                 genericBuild(
+                    image: 'hashicorp/terraform:latest',
+                    cmd: '
+                    terraform init  -input=false -reconfigure -backend-config=region="${AWS_REGION}" -backend-config=bucket="${STATE_BUCKET_PREFIX}" && \
+		            terraform destroy -auto-approve && \
+	               terraform plan -input=false -out=subham-tfplan.tfplan && \
+                    terraform apply  subham-tfplan.tfplan',
+                    aws: [
+                        roleAccount:"${AWS_ACCOUNT}",
+                        role: "${AWS_ROLE}",
+                        region: "${AWS_REGION}"
+                    ]
+                 )
             }
-        }
-        stage ("terraform init") {
-            steps {
-                sh 'terraform init'
-            }
-        }
-        stage ("terraform fmt") {
-            steps {
-                sh 'terraform fmt'
-            }
-        }
-        stage ("terraform validate") {
-            steps {
-                sh 'terraform validate'
-            }
-        }
-        stage ("terrafrom plan") {
-            steps {
-                sh 'terraform plan '
-            }
-        }
-        stage ("terraform apply") {
-            steps {
-                sh 'terraform apply --auto-approve'
-            }
-        }
-    }
+        }       
+	}	
 }
+	   
