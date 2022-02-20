@@ -19,10 +19,7 @@ pipeline{
           {  
             steps {
 		     
-                     sh: ' cd CI-CD;  terraform init  -input=false -reconfigure -backend-config=region="${AWS_REGION}" -backend-config=bucket="${STATE_BUCKET_PREFIX}" && \
-		            terraform destroy -auto-approve && \
-	               terraform plan -input=false -out=subham-tfplan.tfplan && \
-                    terraform apply  subham-tfplan.tfplan',
+                     sh: ' terraform --version',
                     aws: [
                         roleAccount:"${AWS_ACCOUNT}",
                         role: "${AWS_ROLE}",
