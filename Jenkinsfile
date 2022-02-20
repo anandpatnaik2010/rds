@@ -27,6 +27,9 @@ stage ("terraform init")
 	 {
             steps {
                 sh 'terraform init'
+		sh 'terraform plan -input=false -out=lm-mmx-tfplan.tfplan'
+                sh 'terraform apply lm-mmx-tfplan.tfplan'
+    
             }
         }
 	    
