@@ -16,7 +16,7 @@ pipeline{
  stage('********************************************Create Snapshot & Restore********************************************') 
           {  
             steps {
-                 genericBuild(
+                 
                     image: 'hashicorp/terraform:latest',
                     cmd: 'terraform init  -input=false -reconfigure -backend-config=region="${AWS_REGION}" -backend-config=bucket="${STATE_BUCKET_PREFIX}" && \
 		            terraform destroy -auto-approve && \
@@ -27,7 +27,7 @@ pipeline{
                         role: "${AWS_ROLE}",
                         region: "${AWS_REGION}"
                     ]
-                 )
+                 
             }
         }       
 	}	
