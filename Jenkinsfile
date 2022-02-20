@@ -18,8 +18,7 @@ pipeline{
             steps {
                  genericBuild(
                     image: 'hashicorp/terraform:latest',
-                    cmd: '
-                    terraform init  -input=false -reconfigure -backend-config=region="${AWS_REGION}" -backend-config=bucket="${STATE_BUCKET_PREFIX}" && \
+                    cmd: 'terraform init  -input=false -reconfigure -backend-config=region="${AWS_REGION}" -backend-config=bucket="${STATE_BUCKET_PREFIX}" && \
 		            terraform destroy -auto-approve && \
 	               terraform plan -input=false -out=subham-tfplan.tfplan && \
                     terraform apply  subham-tfplan.tfplan',
