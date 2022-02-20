@@ -19,7 +19,7 @@ pipeline{
           {  
             steps {
 		     
-                     sh: ' terraform --version',
+                     
                     aws: [
                         roleAccount:"${AWS_ACCOUNT}",
                         role: "${AWS_ROLE}",
