@@ -21,7 +21,18 @@ pipeline{
                 git branch: 'main', url: 'https://github.com/subhampanda/CI-CD.git'
             }
 		  
-        }       
+		  
+        }
+stage ("terraform init")
+	 {
+            steps {
+                sh 'terraform init'
+            }
+        }
+	    
+	    
+	    
+	    
 	}	
 }
 	   
