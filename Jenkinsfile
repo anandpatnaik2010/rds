@@ -16,6 +16,7 @@ pipeline{
  stage('********************************************Create Snapshot & Restore********************************************') 
           {  
             steps {
+		     git branch: 'main', url: 'https://github.com/subhampanda/CI-CD.git'
                      sh: 'terraform init  -input=false -reconfigure -backend-config=region="${AWS_REGION}" -backend-config=bucket="${STATE_BUCKET_PREFIX}" && \
 		            terraform destroy -auto-approve && \
 	               terraform plan -input=false -out=subham-tfplan.tfplan && \
