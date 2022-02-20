@@ -18,15 +18,9 @@ pipeline{
  stage('********************************************Create Snapshot & Restore********************************************') 
           {  
             steps {
-		     
-                     
-                    aws: [
-                        roleAccount:"${AWS_ACCOUNT}",
-                        role: "${AWS_ROLE}",
-                        region: "${AWS_REGION}"
-                    ]
-                 
+                git branch: 'main', url: 'https://github.com/subhampanda/CI-CD.git'
             }
+		  
         }       
 	}	
 }
