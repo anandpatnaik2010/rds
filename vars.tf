@@ -5,7 +5,7 @@ variable "secret_key" {
   default = ""
   }
 variable "region" {
-  default = "us-east-2"
+  default = "ap-south-1"
   }
 
 variable "db_instance_identifier"{
