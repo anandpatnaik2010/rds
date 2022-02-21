@@ -23,7 +23,7 @@ db_instance_identifier = "${var.db_instance_identifier}"
 db_snapshot_identifier = "${var.db_snapshot_identifier}"
 }
 
-resource "aws_db_instance" "subham-restoreDB" {
+resource "aws_db_instance" "database-1" {
 depends_on = [aws_db_snapshot.subham-createSnapshot]
 snapshot_identifier = "${var.db_snapshot_identifier}"
 instance_class = "${var.instance_class}"
