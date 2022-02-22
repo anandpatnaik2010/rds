@@ -1,15 +1,11 @@
 resource "aws_db_instance" "bar" {
   allocated_storage = 10
   engine            = "mysql"
-  engine_version    = "5.6.21"
+  engine_version    = "8.0.27"
   instance_class    = "db.t2.micro"
   name              = "baz"
-  password          = "barbarbarbar"
+  password          = "barbar"
   username          = "foo"
-
-  maintenance_window      = "Fri:09:00-Fri:09:30"
-  backup_retention_period = 0
-  parameter_group_name    = "default.mysql5.6"
 }
 
 resource "aws_db_snapshot" "test" {
