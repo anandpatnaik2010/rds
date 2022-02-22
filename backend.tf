@@ -4,7 +4,7 @@ resource "aws_db_instance" "bar" {
   engine_version    = "8.0.27"
   instance_class    = "db.t2.micro"
   name              = "baz"
-  password          = "barbar"
+  password          = "barbarbarbar123"
   username          = "foo"
 }
 
