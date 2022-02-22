@@ -1,13 +1,18 @@
+resource "aws_db_instance" "bar" {
+  allocated_storage = 10
+  engine            = "mysql"
+  engine_version    = "5.6.21"
+  instance_class    = "db.t2.micro"
+  name              = "baz"
+  password          = "barbarbarbar"
+  username          = "foo"
 
-resource "aws_db_snapshot" "subham-createSnapshot" {
-db_instance_identifier = "${var.db_instance_identifier}"
-db_snapshot_identifier = "${var.db_snapshot_identifier}"
+  maintenance_window      = "Fri:09:00-Fri:09:30"
+  backup_retention_period = 0
+  parameter_group_name    = "default.mysql5.6"
 }
 
-resource "aws_db_instance" "database-1" {
-depends_on = [aws_db_snapshot.subham-createSnapshot]
-snapshot_identifier = "${var.db_snapshot_identifier}"
-instance_class = "${var.instance_class}"
-skip_final_snapshot = true
-
+resource "aws_db_snapshot" "test" {
+  db_instance_identifier = aws_db_instance.bar.id
+  db_snapshot_identifier = "testsnapshot"
 }
